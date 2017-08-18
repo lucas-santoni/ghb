@@ -7,5 +7,5 @@ void usage(const char *self) {
 
   printf("GHB is a GameBoy Header Beautifier.\n"
       "It reads a GambeBoy ROM file and prints some informations.\n\n"
-      "USGAGE: %s [ROM file]\n", self);
+      "USAGE: %s [ROM file]\n", self);
 }

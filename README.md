@@ -5,7 +5,7 @@ informations from a GameBoy ROM. It will try to read its header and outputs
 all it finds.
 
 ``` terminal
-$ ./ghb The\ Legend\ of\ Zelda,\ Link\'s\ Awakening.gbc
+$ ./ghb "The Legend of Zelda, Link's Awakening.gbc"
 Entry:                  00 c3 50 01
 Nintendo:               ce ed 66 66 cc 0d 00 0b 03 73 00 83...
 Title:                  ZELDA
@@ -37,7 +37,7 @@ It reads a GambeBoy ROM file and prints some informations.
 USAGE: ./ghb [ROM file]
 ```
 
-GHB is written in plain C11 and should run on approximately any system.
+GHB is written in plain C11 and should run on approximately any modern system.
 
 ## Contribute
 

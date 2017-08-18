@@ -1,7 +1,8 @@
 CC = clang
 
 CFLAGS += -Iincludes/
-CFLAGS += -Werror -g3 -O2
+#CFLAGS += -Werror -g3 -O2
+CFLAGS += -std=c11
 CFLAGS += -Wextra -Wall -Wshadow -Wfloat-equal -Wundef -Wpointer-arith
 CFLAGS += -Wcast-align -Wstrict-prototypes -Waggregate-return
 CFLAGS += -Wswitch-default -Wswitch-enum -Wunreachable-code -pedantic

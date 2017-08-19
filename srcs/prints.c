@@ -2,6 +2,8 @@
 
 #include "print.h"
 
+// Array of function pointers
+// Each function prints one information about the header
 printer prints[] = {
   printEntry,
   printNintendo,

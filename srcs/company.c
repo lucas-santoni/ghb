@@ -3,6 +3,7 @@
 #include "dict.h"
 #include "colors.h"
 
+// This list may not be complete
 static const dict oldCompanies[] = {
   {0x00, RED "Unknown" RESET},
   {0x01, "Nintendo"},

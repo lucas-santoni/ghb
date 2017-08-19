@@ -11,6 +11,7 @@
 // TODO: Update readme
 // TODO: Merge
 
+// At least one path to the ROM is required
 int32_t checkArgs(int argc, char * const argv[]) {
   if (!argv || !*argv)
     exit(ERROR_ARGS);
@@ -21,6 +22,7 @@ int32_t checkArgs(int argc, char * const argv[]) {
   return SUCCESS;
 }
 
+// Entry point
 int main(int argc, char * const argv[]) {
   if (checkArgs(argc, argv) != SUCCESS) {
     usage(*argv);

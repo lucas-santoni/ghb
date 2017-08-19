@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
+// Tell the user what's up
 void usage(const char *self) {
   if (!self)
     return;

@@ -11,6 +11,9 @@
 #include "ram.h"
 #include "company.h"
 
+// Check the entry bytes
+// They do not *need* to be the same but they are most
+// of the time so it still makes sense to check them
 inline void printEntry(const header *h) {
   bool check = false;
   if (*(uint32_t *)(void *)h->entry == ENTRY_USUAL)
@@ -25,6 +28,8 @@ inline void printEntry(const header *h) {
   printf(RESET "\n");
 }
 
+// The bytes here are supposed to always be the
+// same so it makes sense to check them
 inline void printNintendo(const header *h) {
   bool check = checkNintendoLogo(h->nintendo);
 
@@ -35,10 +40,12 @@ inline void printNintendo(const header *h) {
   printf("..." RESET "\n");
 }
 
+// The title is all uppercase
 inline void printTitle(const header *h) {
   printf("Title:\t\t\t%s\n", h->title);
 }
 
+// Color support
 inline void printCgb(const header *h) {
   printf("Color support:\t\t");
   if (*h->cgb)
@@ -47,6 +54,8 @@ inline void printCgb(const header *h) {
     printf(YELLOW "Monochromatic" RESET "\n");
 }
 
+// Each company allowed to make games is associated
+// to a specific value
 // TODO: Setup a new table for this
 inline void printCompany(const header *h) {
   char *company = NULL;
@@ -58,6 +67,7 @@ inline void printCompany(const header *h) {
   printf("Licensee code:\t\t%s\n", company);
 }
 
+// Super Game Boy support
 inline void printSgb(const header *h) {
   printf("Super Game Boy:\t\t");
   if (*h->sgb)
@@ -65,7 +75,8 @@ inline void printSgb(const header *h) {
   else
     printf(RED "No" RESET "\n");
 }
-
+// Cartridge type
+// Each one associated to a value
 inline void printCartridge(const header *h) {
   char *type = getCartridgeType(*h->cartridge);
 
@@ -77,6 +88,8 @@ inline void printCartridge(const header *h) {
   printf("\n");
 }
 
+// ROM type
+// Each one associated to a value
 inline void printRom(const header *h) {
   char *size = getRomSize(*h->rom);
 
@@ -88,6 +101,8 @@ inline void printRom(const header *h) {
   printf("\n");
 }
 
+// RAM type
+// Each one associated to a value
 inline void printRam(const header *h) {
   char *size = getRamSize(*h->ram);
 
@@ -99,6 +114,8 @@ inline void printRam(const header *h) {
   printf("\n");
 }
 
+// Is this game supposed to be distributed in Japan
+// or in the rest of the world ?
 inline void printDestination(const header *h) {
   printf("Destination:\t\t");
   if (!*h->destination)
@@ -107,6 +124,8 @@ inline void printDestination(const header *h) {
     printf("Non-Japanese\n");
 }
 
+// Version of the game, natural number
+// Unknown most of the time
 inline void printVersion(const header *h) {
   printf("Version:\t\t");
   if (!*h->version)

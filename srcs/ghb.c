@@ -9,6 +9,8 @@
 
 extern printer prints[];
 
+// Loop through the array of function pointers
+// Print all parts of the header
 static void printHeader(const header *h) {
   if (!h)
     return;
@@ -17,6 +19,10 @@ static void printHeader(const header *h) {
     prints[i](h);
 }
 
+// Check if filed can be read
+// If so, read the header into the structure
+// Call the printers
+// Close file
 int32_t ghb(const char *file) {
   if (!file) {
     fprintf(stderr, "No file provided.\n");

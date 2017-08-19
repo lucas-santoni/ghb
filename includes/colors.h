@@ -1,5 +1,7 @@
 #pragma once
 
+// ANSI Color codes
+// TODO: Windows compatibility
 #define RED "\x1b[31m"
 #define GREEN "\x1b[32m"
 #define YELLOW "\x1b[33m"

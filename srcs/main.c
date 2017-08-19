@@ -7,6 +7,10 @@
 #include "usage.h"
 #include "ghb.h"
 
+// TODO: More testing
+// TODO: Update readme
+// TODO: Merge
+
 int32_t checkArgs(int argc, char * const argv[]) {
   if (!argv || !*argv)
     exit(ERROR_ARGS);

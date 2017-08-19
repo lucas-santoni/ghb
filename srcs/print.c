@@ -80,7 +80,7 @@ inline void printRom(const header *h) {
 
 // TODO: Setup a table for this
 inline void printRam(const header *h) {
-  printf("ROM Size:\t\t%02x\n", *h->ram);
+  printf("RAM Size:\t\t%02x\n", *h->ram);
 }
 
 inline void printDestination(const header *h) {

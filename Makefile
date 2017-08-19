@@ -1,4 +1,4 @@
-CC = clang
+CC = @clang
 
 CFLAGS += -Iincludes/
 #CFLAGS += -Werror -g3
@@ -24,18 +24,25 @@ OBJS = $(SRCS:.c=.o)
 
 NAME = ghb
 
-RM = rm -f
+RM = @rm -f
+
+ECHO = @echo
+GREEN = "\x1b[32m"
+RESET = "\x1b[0m"
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+	$(ECHO) $(GREEN)"✓ Build successful !"$(RESET)
 
 clean:
 	$(RM) $(OBJS)
+	$(ECHO) "✓ Cleaning object..."
 
 fclean: clean
 	$(RM) $(NAME)
+	$(ECHO) "✓ Cleaning binaries..."
 
 re: fclean all
 

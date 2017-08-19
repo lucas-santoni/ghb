@@ -7,7 +7,7 @@
 #include "print.h"
 #include "file.h"
 
-extern printers prints[];
+extern printer prints[];
 
 static void printHeader(const header *h) {
   if (!h)

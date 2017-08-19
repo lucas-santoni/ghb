@@ -1,8 +1,9 @@
 CC = clang
 
 CFLAGS += -Iincludes/
-#CFLAGS += -Werror -g3 -O2
+#CFLAGS += -Werror -g3
 CFLAGS += -std=c11
+CFLAGS += -O2
 CFLAGS += -Wextra -Wall -Wshadow -Wfloat-equal -Wundef -Wpointer-arith
 CFLAGS += -Wcast-align -Wstrict-prototypes -Waggregate-return
 CFLAGS += -Wswitch-default -Wswitch-enum -Wunreachable-code -pedantic
@@ -11,7 +12,10 @@ SRCS = srcs/main.c \
        srcs/usage.c \
        srcs/ghb.c \
        srcs/print.c \
-       srcs/file.c
+       srcs/prints.c \
+       srcs/file.c \
+       srcs/cartridge.c \
+       srcs/nintendoLogo.c
 
 OBJS = $(SRCS:.c=.o)
 

@@ -16,4 +16,4 @@ void printRam(const header *h);
 void printDestination(const header *h);
 void printVersion(const header *h);
 
-typedef void (*printers)(const header *h);
+typedef void (*printer)(const header *h);

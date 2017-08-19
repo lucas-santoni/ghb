@@ -1,7 +1,6 @@
 # GameBoy Header Beautifier
 
 [![Build Status](https://travis-ci.org/Geospace/ghb.svg?branch=master)](https://travis-ci.org/Geospace/ghb)
-[![Issue Count](https://codeclimate.com/github/Geospace/ghb/badges/issue_count.svg)](https://codeclimate.com/github/Geospace/ghb)
 
 GameBoy Header Beautifier (GHB) is a command line tool to help you retrieve
 informations from a GameBoy ROM. It will try to read its header and outputs

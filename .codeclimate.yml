@@ -1,6 +1,0 @@
-engines:
-  fixme:
-    enabled: true
-    checks:
-      TODO:
-        enabled: false

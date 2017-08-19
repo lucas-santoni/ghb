@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 #include "header.h"
 #include "print.h"
+#include "colors.h"
 
 printers prints[] = {
   printEntry,
@@ -19,23 +21,41 @@ printers prints[] = {
   NULL
 };
 
-// TODO: Does it make any sense to implement a checker
-// for this ?
 inline void printEntry(const header *h) {
-  printf("Entry:\t\t\t%02x", *h->entry);
+  bool check = false;
+  if (*(uint32_t *)(void *)h->entry == ENTRY_USUAL)
+    check = true;
+
+  printf("Entry:\t\t\t%s", check ? GREEN : YELLOW);
+
+  printf("%02x", *h->entry);
   for (uint32_t i = 1; i < sizeof(h->entry); ++i)
     printf(" %02x", *(h->entry + i));
-  printf("\n");
+
+  printf(RESET "\n");
 }
 
-// TODO: Implement a checker for this
-// as this data is meant to be static
-// TODO: Setup a table for this
 inline void printNintendo(const header *h) {
-  printf("Nintendo:\t\t%02x", *h->nintendo);
-  for (uint32_t i = 1; i < sizeof(h->nintendo) / 4; ++i)
+  static const uint8_t nintendoLogoHexDump[] = {
+    0xCE, 0xED, 0x66, 0x66, 0xCC, 0x0D, 0x00, 0x0B, 0x03, 0x73, 0x00, 0x83,
+    0x00, 0x0C, 0x00, 0x0D, 0x00, 0x08, 0x11, 0x1F, 0x88, 0x89, 0x00, 0x0E,
+    0xDC, 0xCC, 0x6E, 0xE6, 0xDD, 0xDD, 0xD9, 0x99, 0xBB, 0xBB, 0x67, 0x63,
+    0x6E, 0x0E, 0xEC, 0xCC, 0xDD, 0xDC, 0x99, 0x9F, 0xBB, 0xB9, 0x33, 0x3E
+  };
+
+  bool check = true;
+  for (uint32_t i = 0; i < sizeof(nintendoLogoHexDump); ++i) {
+    if (nintendoLogoHexDump[i] != *(h->nintendo + i)) {
+      check = false;
+      break;
+    }
+  }
+
+  printf("Nintendo:\t\t%s", check ? GREEN : RED);
+  printf("%02x", *h->nintendo);
+  for (uint32_t i = 1; i < 4; ++i)
     printf(" %02x", *(h->nintendo + i));
-  printf("...\n");
+  printf("..." RESET "\n");
 }
 
 inline void printTitle(const header *h) {
@@ -45,13 +65,11 @@ inline void printTitle(const header *h) {
 inline void printCgb(const header *h) {
   printf("Color support:\t\t");
   if (*h->cgb)
-    printf("Monochromatic & Color\n");
+    printf(RED "Monochromatic & Color" RESET "\n");
   else
-    printf("Monochromatic\n");
+    printf(YELLOW "Monochromatic" RESET "\n");
 }
 
-// TODO: Execute this only only if old
-// format says to
 inline void printCompany(const header *h) {
   printf("Licensee code:\t\t");
   if (*h->oldcompany == USE_NEW_LICENSE_CODE)
@@ -63,9 +81,9 @@ inline void printCompany(const header *h) {
 inline void printSgb(const header *h) {
   printf("Super Game Boy:\t\t");
   if (*h->sgb)
-    printf("Yes\n");
+    printf(GREEN "Yes" RESET "\n");
   else
-    printf("No\n");
+    printf(RED "No" RESET "\n");
 }
 
 // TODO: Setup a table for this

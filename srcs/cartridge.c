@@ -2,7 +2,7 @@
 
 #include "dict.h"
 
-static dict cartridgeTypes[] = {
+static const dict cartridgeTypes[] = {
   {0x00, "ROM ONLY"},
   {0x01, "MBC1"},
   {0x02, "MBC1+RAM"},

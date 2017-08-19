@@ -9,6 +9,7 @@
 #include "nintendoLogo.h"
 #include "rom.h"
 #include "ram.h"
+#include "company.h"
 
 inline void printEntry(const header *h) {
   bool check = false;
@@ -46,13 +47,15 @@ inline void printCgb(const header *h) {
     printf(YELLOW "Monochromatic" RESET "\n");
 }
 
-// TODO: Setup a table fot this
+// TODO: Setup a new table for this
 inline void printCompany(const header *h) {
-  printf("Licensee code:\t\t");
+  char *company = NULL;
   if (*h->oldcompany == USE_NEW_LICENSE_CODE)
-    printf("%02x (new)\n", *h->company);
+    company = RED "Not implemented" RESET;
   else
-    printf("%02x (old)\n", *h->oldcompany);
+    company = getOldCompany(*h->oldcompany);
+
+  printf("Licensee code:\t\t%s\n", company);
 }
 
 inline void printSgb(const header *h) {

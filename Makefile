@@ -17,7 +17,8 @@ SRCS = srcs/main.c \
        srcs/cartridge.c \
        srcs/nintendoLogo.c \
        srcs/rom.c \
-       srcs/ram.c
+       srcs/ram.c \
+       srcs/company.c
 
 OBJS = $(SRCS:.c=.o)
 

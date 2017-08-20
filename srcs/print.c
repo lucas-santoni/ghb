@@ -56,11 +56,10 @@ inline void printCgb(const header *h) {
 
 // Each company allowed to make games is associated
 // to a specific value
-// TODO: Setup a new table for this
 inline void printCompany(const header *h) {
   char *company = NULL;
   if (*h->oldcompany == USE_NEW_LICENSE_CODE)
-    company = RED "Not implemented" RESET;
+    company = getNewCompany(*h->company);
   else
     company = getOldCompany(*h->oldcompany);
 

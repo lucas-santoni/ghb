@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdint.h>
-#include <stdbool.h>
 
 #include "header.h"
 #include "colors.h"
 #include "print.h"
 #include "cartridge.h"
+#include "entry.h"
 #include "nintendoLogo.h"
 #include "rom.h"
 #include "ram.h"
@@ -15,10 +15,7 @@
 // They do not *need* to be the same but they are most
 // of the time so it still makes sense to check them
 inline void printEntry(const header *h) {
-  bool check = false;
-  if (*(uint32_t *)(void *)h->entry == ENTRY_USUAL)
-    check = true;
-
+  bool check = checkEntry(h->entry);
   printf("Entry:\t\t\t%s", check ? "" : YELLOW);
 
   printf("%02x", *h->entry);

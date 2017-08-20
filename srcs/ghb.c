@@ -4,6 +4,8 @@
 
 #include "status.h"
 #include "header.h"
+#include "entry.h"
+#include "nintendoLogo.h"
 #include "print.h"
 #include "file.h"
 
@@ -14,6 +16,10 @@ extern printer prints[];
 static void printHeader(const header *h) {
   if (!h)
     return;
+
+  if (!checkEntry(h->entry) && !checkNintendoLogo(h->nintendo))
+    printf("This file does not seem to be a valid ROM.\n"
+        "Unexpected things may happen...\n\n");
 
   for (uint32_t i = 0; prints[i] != NULL; ++i)
     prints[i](h);

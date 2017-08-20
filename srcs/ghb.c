@@ -1,7 +1,9 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <strings.h>
+#include <stdlib.h>
 
+#include "args.h"
 #include "status.h"
 #include "header.h"
 #include "entry.h"
@@ -10,6 +12,7 @@
 #include "file.h"
 
 extern printer prints[];
+extern arguments args;
 
 // Loop through the array of function pointers
 // Print all parts of the header
@@ -17,9 +20,12 @@ static void printHeader(const header *h) {
   if (!h)
     return;
 
-  if (!checkEntry(h->entry) && !checkNintendoLogo(h->nintendo))
+  if (!checkEntry(h->entry) && !checkNintendoLogo(h->nintendo)
+      && !args.force) {
     printf("This file does not seem to be a valid ROM.\n"
-        "Unexpected things may happen...\n\n");
+        "Use -f if you still want to parse it.\n");
+    exit(SEEMS_INVALID);
+  }
 
   for (uint32_t i = 0; prints[i] != NULL; ++i)
     prints[i](h);

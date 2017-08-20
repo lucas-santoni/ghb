@@ -19,7 +19,8 @@ SRCS = srcs/main.c \
        srcs/rom.c \
        srcs/ram.c \
        srcs/company.c \
-       srcs/entry.c
+       srcs/entry.c \
+       srcs/args.c
 
 OBJS = $(SRCS:.c=.o)
 

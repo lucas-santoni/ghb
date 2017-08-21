@@ -6,6 +6,10 @@ GameBoy Header Beautifier (GHB) is a command line tool to help you retrieve
 informations from a GameBoy (Color) ROM. It reads its header and outputs
 all it finds.
 
+<p align="center">
+  <img src="screenshot.png" alt="Screenshot" max-width="60%">
+</p>
+
 Check out [this link](http://gbdev.gg8.se/wiki/articles/The_Cartridge_Header)
 for more informations about the GameBoy cartridge header.
 

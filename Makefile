@@ -2,7 +2,7 @@ CC = @clang
 
 CFLAGS += -Iincludes/
 #CFLAGS += -Werror -g3
-CFLAGS += -std=c11
+CFLAGS += -std=gnu11
 CFLAGS += -O2
 CFLAGS += -Wextra -Wall -Wshadow -Wfloat-equal -Wundef -Wpointer-arith
 CFLAGS += -Wcast-align -Wstrict-prototypes -Waggregate-return
@@ -28,7 +28,7 @@ NAME = ghb
 
 RM = @rm -f
 
-ECHO = @echo
+ECHO = @/bin/echo -e
 GREEN = "\x1b[32m"
 RESET = "\x1b[0m"
 

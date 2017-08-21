@@ -1,3 +1,4 @@
+sudo: false
 language: c
-compiler: clang
+compiler: clang-3.4
 script: make

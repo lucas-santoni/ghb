@@ -71,6 +71,7 @@ inline void printSgb(const header *h) {
   else
     printf(RED "No" RESET "\n");
 }
+
 // Cartridge type
 // Each one associated to a value
 inline void printCartridge(const header *h) {

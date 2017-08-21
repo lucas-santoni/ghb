@@ -1,12 +1,17 @@
 # Prerequisites
 *.d
 
+# Vim
+*.swp
+
+# Project specific
+ghb
+
 # Object files
 *.o
 *.ko
 *.obj
 *.elf
-ghb
 
 # Linker output
 *.ilk

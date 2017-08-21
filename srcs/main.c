@@ -1,28 +1,16 @@
-#include <stdint.h>
-#include <stdlib.h>
-#include <stddef.h>
-
 #include "status.h"
 #include "args.h"
 #include "usage.h"
 #include "ghb.h"
 
-int32_t checkArgs(int argc, char * const argv[]) {
-  if (!argv || !*argv)
-    exit(ERROR_ARGS);
+extern arguments args;
 
-  if (argc < MIN_ARGS)
-    return FAILURE;
-
-  return SUCCESS;
-}
-
+// Entry point
 int main(int argc, char * const argv[]) {
-  if (checkArgs(argc, argv) != SUCCESS) {
+  if (parseCommandLineArguments(argc, argv) != SUCCESS) {
     usage(*argv);
     return ERROR_ARGS;
   }
 
-  ++argv;
-  return ghb(*argv);
+  return ghb(args.romPath);
 }

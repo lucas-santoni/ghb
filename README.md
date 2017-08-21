@@ -7,7 +7,7 @@ informations from a GameBoy (Color) ROM. It reads its header and outputs
 all it finds.
 
 <p align="center">
-  <img src="screenshot.png" alt="Screenshot" max-width="60%">
+  <img src="screenshot.png" alt="Screenshot" width="512px" style="max-width:100%">
 </p>
 
 Check out [this link](http://gbdev.gg8.se/wiki/articles/The_Cartridge_Header)

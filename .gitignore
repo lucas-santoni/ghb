@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 
+# OS X
+.DS_Store
+
 # Vim
 *.swp
 

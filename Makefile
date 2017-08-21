@@ -28,7 +28,7 @@ NAME = ghb
 
 RM = @rm -f
 
-ECHO = @/bin/echo -e
+ECHO = -@printf
 GREEN = "\x1b[32m"
 RESET = "\x1b[0m"
 
@@ -36,15 +36,15 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
-	$(ECHO) $(GREEN)"✓ Build successful !"$(RESET)
+	$(ECHO) $(GREEN)"✓ Build successful !"$(RESET)"\n"
 
 clean:
 	$(RM) $(OBJS)
-	$(ECHO) "✓ Cleaning object..."
+	$(ECHO) "✓ Cleaning object...\n"
 
 fclean: clean
 	$(RM) $(NAME)
-	$(ECHO) "✓ Cleaning binaries..."
+	$(ECHO) "✓ Cleaning binaries...\n"
 
 re: fclean all
 

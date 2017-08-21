@@ -35,6 +35,11 @@ OPTIONS:
 
 GHB is written in plain C11 and should run on approximately any modern system.
 
+Although development happen primarily on macOS and Linux,
+GHB should build and work on Windows. You may have to [enable the ANSI
+sequences](https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences)
+in your terminal emulator to enjoy the colors.
+
 ## Contribute
 
 Open an issue, a pull request, fork the project, do whatever you want ! :)

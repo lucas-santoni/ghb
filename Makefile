@@ -1,4 +1,4 @@
-CC = @clang
+CC := @$(CC)
 
 CFLAGS += -Iincludes/
 #CFLAGS += -Werror -g3

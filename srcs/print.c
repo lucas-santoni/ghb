@@ -39,7 +39,11 @@ inline void printNintendo(const header *h) {
 
 // The title is all uppercase
 inline void printTitle(const header *h) {
-  printf("Title:\t\t\t%s\n", h->title);
+  printf("Title:\t\t\t");
+  if (h->title)
+    printf("%s\n", h->title);
+  else
+    printf(RED "Unknown" RESET "\n");
 }
 
 // Color support
@@ -60,7 +64,11 @@ inline void printCompany(const header *h) {
   else
     company = getOldCompany(*h->oldcompany);
 
-  printf("Licensee code:\t\t%s\n", company);
+  printf("Company:\t\t");
+  if (company)
+    printf("%s\n", company);
+  else
+    printf(RED "Unknown" RESET "\n");
 }
 
 // Super Game Boy support
